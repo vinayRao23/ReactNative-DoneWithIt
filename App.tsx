@@ -15,7 +15,7 @@ const App = () => {
     >
       <View
         style={{
-          backgroundColor: "dodgerblue",
+          backgroundColor: "pink",
           width: 100,
           height: 100,
         }}
