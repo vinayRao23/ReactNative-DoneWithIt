@@ -9,9 +9,9 @@ import AppButton from "./app/components/AppButton";
 
 const App = () => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <WelcomeScreen />
-    </View>
+    // <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <WelcomeScreen />
+    // </View>
   );
 };
 

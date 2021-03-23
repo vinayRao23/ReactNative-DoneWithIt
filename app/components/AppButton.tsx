@@ -5,11 +5,15 @@ import colors from "../config/colors";
 interface IProps {
   title: string;
   onPress: () => void;
+  color: string;
 }
 
-const AppButton = ({ title, onPress }: IProps) => {
+const AppButton = ({ title, onPress, color }: IProps) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
+    <TouchableOpacity
+      style={[styles.button, { backgroundColor: color }]}
+      onPress={onPress}
+    >
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -17,7 +21,6 @@ const AppButton = ({ title, onPress }: IProps) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: colors.primary,
     width: "100%",
     height: 50,
     borderRadius: 25,
