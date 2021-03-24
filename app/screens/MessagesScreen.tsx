@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList, SafeAreaView, View } from "react-native";
 import ListItem from "../components/ListItem";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 import ListItemSeparator from "../components/ListItemSeparator";
 
 interface IProps {}
@@ -31,6 +32,8 @@ const MessagesScreen = (props: IProps) => {
             title={item.title}
             subTitle={item.description}
             image={item.image}
+            onPress={() => console.log("Message Selected:", item)}
+            renderRightActions={ListItemDeleteAction}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
