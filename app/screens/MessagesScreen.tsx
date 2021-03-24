@@ -1,6 +1,7 @@
 import React from "react";
-import { FlatList, SafeAreaView } from "react-native";
+import { FlatList, SafeAreaView, View } from "react-native";
 import ListItem from "../components/ListItem";
+import ListItemSeparator from "../components/ListItemSeparator";
 
 interface IProps {}
 
@@ -32,6 +33,7 @@ const MessagesScreen = (props: IProps) => {
             image={item.image}
           />
         )}
+        ItemSeparatorComponent={ListItemSeparator}
       />
     </SafeAreaView>
   );
