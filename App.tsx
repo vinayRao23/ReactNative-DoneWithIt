@@ -8,6 +8,7 @@ import AppText from "./app/components/AppText/AppText";
 import AppButton from "./app/components/AppButton";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
 
 const App = () => {
   return (
@@ -27,9 +28,7 @@ const App = () => {
     //     image={require("./app/assets/jacket.jpg")}
     //   />
     // </View>
-    <View>
-      <ListingDetailsScreen />
-    </View>
+    <MessagesScreen />
   );
 };
 

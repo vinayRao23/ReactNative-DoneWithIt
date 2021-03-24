@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Image, SafeAreaView, StyleSheet } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
 
@@ -13,8 +14,12 @@ const ViewImageScreen = () => {
           source={require("../assets/chair.jpg")}
         />
       </SafeAreaView>
-      <SafeAreaView style={styles.closeIcon} />
-      <SafeAreaView style={styles.deleteIcon} />
+      <MaterialCommunityIcons name="close" style={styles.closeIcon} size={40} />
+      <MaterialCommunityIcons
+        name="trash-can-outline"
+        style={styles.deleteIcon}
+        size={40}
+      />
     </Fragment>
   );
 };
@@ -32,18 +37,18 @@ const styles = StyleSheet.create({
   closeIcon: {
     width: 50,
     height: 50,
-    backgroundColor: colors.primary,
     position: "absolute",
+    color: colors.white,
     top: 40,
-    left: 30,
+    left: 20,
   },
   deleteIcon: {
     width: 50,
     height: 50,
-    backgroundColor: colors.secondary,
     position: "absolute",
+    color: colors.white,
     top: 40,
-    right: 30,
+    right: 5,
   },
 });
 
