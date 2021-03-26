@@ -12,18 +12,21 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import MyAccountScreen from "./app/screens/MyAccountScreen";
 import colors from "./app/config/colors";
 import Icon from "./app/components/Icon";
+import ListingsScreen from "./app/screens/ListingsScreen";
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <MyAccountScreen />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <ListingsScreen />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.light,
+    padding: 20,
+    paddingTop: 100,
     flex: 1,
   },
 });

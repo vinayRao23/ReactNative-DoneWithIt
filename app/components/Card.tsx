@@ -23,10 +23,10 @@ const Card = ({ title, subTitle, image }: IProps) => {
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 15,
+    borderRadius: 20,
     backgroundColor: colors.white,
-    marginBottom: 20,
     overflow: "hidden",
+    width: "100%",
   },
   image: {
     width: "100%",

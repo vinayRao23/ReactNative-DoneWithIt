@@ -5,9 +5,7 @@ import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
 import colors from "../config/colors";
 
-interface IProps {}
-
-const MyAccountScreen = ({}: IProps) => {
+const MyAccountScreen = () => {
   return (
     <Fragment>
       <SafeAreaView style={styles.container}>
