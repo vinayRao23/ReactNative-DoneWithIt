@@ -8,8 +8,8 @@ interface IProps {
   title: string;
   subTitle: string;
   image: number;
-  onPress: () => void;
-  renderRightActions: () => any;
+  onPress?: () => void;
+  renderRightActions?: () => any;
 }
 
 const ListItem = ({

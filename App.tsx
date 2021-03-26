@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -9,27 +9,23 @@ import AppButton from "./app/components/AppButton";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
+import MyAccountScreen from "./app/screens/MyAccountScreen";
+import colors from "./app/config/colors";
+import Icon from "./app/components/Icon";
 
 const App = () => {
   return (
-    // <View
-    //   style={{
-    //     // flex: 1,
-    //     // justifyContent: "center",
-    //     // alignItems: "center",
-    //     backgroundColor: "#f8f4f4",
-    //     padding: 20,
-    //     paddingTop: 100,
-    //   }}
-    // >
-    //   <Card
-    //     title="You R Fat"
-    //     subTitle="$1,000,000"
-    //     image={require("./app/assets/jacket.jpg")}
-    //   />
-    // </View>
-    <MessagesScreen />
+    <SafeAreaView style={styles.container}>
+      <MyAccountScreen />
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.light,
+    flex: 1,
+  },
+});
 
 export default App;
