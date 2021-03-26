@@ -1,9 +1,7 @@
 import React from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "./AppText/AppText";
-import colors from "../config/colors";
-
 interface IProps {
   name: any;
   size: number;
@@ -14,17 +12,27 @@ interface IProps {
 
 const Icon = ({ name, size, backgroundColor, iconColor, title }: IProps) => {
   return (
-    <SafeAreaView style={styles.container}>
-      <MaterialCommunityIcons
-        name={name}
-        size={size}
-        style={styles.backgroundColor}
-        color={iconColor}
-      />
-      <SafeAreaView>
+    <View style={styles.container}>
+      <View
+        style={{
+          width: size,
+          height: size,
+          borderRadius: size / 2,
+          backgroundColor,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name={name}
+          size={size * 0.5}
+          color={iconColor}
+        />
+      </View>
+      <View>
         <AppText style={styles.title}>{title}</AppText>
-      </SafeAreaView>
-    </SafeAreaView>
+      </View>
+    </View>
   );
 };
 
@@ -33,11 +41,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
   },
-  backgroundColor: {
-    backgroundColor: colors.primary,
-  },
   title: {
     fontWeight: "500",
+    paddingLeft: 10,
+    paddingTop: "3%",
   },
 });
 

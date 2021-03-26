@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "500",
+    paddingTop: 8,
   },
   subTitle: {
     color: colors.medium,
