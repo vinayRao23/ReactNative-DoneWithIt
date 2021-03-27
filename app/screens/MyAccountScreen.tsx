@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
 import Icon from "../components/Icon";
-import ListItem from "../components/ListItem";
-import ListItemSeparator from "../components/ListItemSeparator";
+import ListItem from "../components/Lists/ListItem";
+import ListItemSeparator from "../components/Lists/ListItemSeparator";
 import colors from "../config/colors";
 
 const MyAccountScreen = () => {

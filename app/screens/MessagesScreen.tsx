@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FlatList, SafeAreaView, StyleSheet } from "react-native";
-import ListItem from "../components/ListItem";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
-import ListItemSeparator from "../components/ListItemSeparator";
+import ListItem from "../components/Lists/ListItem";
+import ListItemDeleteAction from "../components/Lists/ListItemDeleteAction";
+import ListItemSeparator from "../components/Lists/ListItemSeparator";
 
 interface IProps {}
 
