@@ -1,26 +1,30 @@
 import React, { Fragment } from "react";
 import { useFormikContext } from "formik";
-import AppTextInput from "../AppTextInput";
 import ErrorMessage from "./ErrorMessage";
+import AppPicker from "../AppPicker";
+import colors from "../../config/colors";
 
-const AppFormField = ({ name, ...rest }: any) => {
+const AppFormPicker = ({ items, name, placeholder }: any) => {
   const {
-    handleChange,
+    setFieldValue,
     setFieldTouched,
     errors,
     touched,
+    values,
   } = useFormikContext<any>();
 
   return (
     <Fragment>
-      <AppTextInput
-        onChangeText={handleChange(name)}
+      <AppPicker
+        items={items}
+        placeholder={placeholder}
         onBlur={() => setFieldTouched(name)}
-        {...rest}
+        onSelectItem={(item: any) => setFieldValue(name, item)}
+        selectedItem={values[name]}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
     </Fragment>
   );
 };
 
-export default AppFormField;
+export default AppFormPicker;

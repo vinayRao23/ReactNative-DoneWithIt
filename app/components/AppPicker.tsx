@@ -13,21 +13,13 @@ import colors from "../config/colors";
 import AppText from "./AppText";
 import PickerItem from "./PickerItem";
 
-interface IProps {
-  icon?: any;
-  items: Array<any>;
-  onSelectItem: (item: any) => void;
-  placeholder?: string;
-  selectedItem: { label: string; value: number };
-}
-
 const AppPicker = ({
   icon,
   items,
   onSelectItem,
   placeholder,
   selectedItem,
-}: IProps) => {
+}: any) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -93,6 +85,7 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
+    color: colors.medium,
   },
 });
 
