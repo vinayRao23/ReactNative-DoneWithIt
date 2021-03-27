@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { SafeAreaView, Switch, Text, TextInput } from "react-native";
-import LoginScreen from "./app/screens/LoginScreen";
+import React from "react";
+import {} from "react-native";
+import RegisterScreen from "./app/screens/RegisterScreen";
 
 const App = () => {
-  return <LoginScreen />;
+  return <RegisterScreen />;
 };
 
 export default App;

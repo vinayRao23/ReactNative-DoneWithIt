@@ -9,9 +9,9 @@ import {
   FlatList,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import colors from "../../config/colors";
+import colors from "../config/colors";
 import AppText from "./AppText";
-import PickerItem from "../PickerItem";
+import PickerItem from "./PickerItem";
 
 interface IProps {
   icon?: any;

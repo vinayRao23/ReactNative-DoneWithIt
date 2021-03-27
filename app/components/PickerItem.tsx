@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet } from "react-native";
-import AppText from "./AppText/AppText";
+import AppText from "./AppText";
 
 interface IProps {
   label: string;

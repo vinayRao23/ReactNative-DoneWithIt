@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import AppText from "./AppText/AppText";
+import AppText from "./AppText";
 interface IProps {
   name: any;
   size: number;

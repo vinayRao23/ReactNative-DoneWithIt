@@ -1,22 +1,30 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, Image } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import * as Yup from "yup";
-import { AppFormField, SubmitButton, AppForm } from "../components/Forms";
+import { AppForm, AppFormField, SubmitButton } from "../components/Forms";
 
 const validationSchema = Yup.object().shape({
+  name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
-const LoginScreen = () => {
+const RegisterScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Image style={styles.logo} source={require("../assets/logo-red.png")} />
       <AppForm
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <AppFormField
+          placeholder="Name"
+          icon="account"
+          autoCapitalize="none"
+          autoCorrect={false}
+          name="name"
+          textContentType="name"
+        />
         <AppFormField
           placeholder="Email"
           icon="email"
@@ -35,7 +43,7 @@ const LoginScreen = () => {
           textContentType="password"
           secureTextEntry
         />
-        <SubmitButton title="login" />
+        <SubmitButton title="Register" />
       </AppForm>
     </SafeAreaView>
   );
@@ -45,13 +53,6 @@ const styles = StyleSheet.create({
   container: {
     margin: 10,
   },
-  logo: {
-    width: 80,
-    height: 80,
-    alignSelf: "center",
-    marginBottom: 20,
-    marginTop: 50,
-  },
 });
 
-export default LoginScreen;
+export default RegisterScreen;
