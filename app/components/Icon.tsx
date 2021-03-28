@@ -2,15 +2,8 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "./AppText";
-interface IProps {
-  name: any;
-  size: number;
-  backgroundColor: string;
-  iconColor: string;
-  title: any;
-}
 
-const Icon = ({ name, size, backgroundColor, iconColor, title }: IProps) => {
+const Icon = ({ name, size, backgroundColor, iconColor, title }: any) => {
   return (
     <View style={styles.container}>
       <View

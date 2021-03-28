@@ -2,9 +2,15 @@ import React, { Fragment } from "react";
 import { useFormikContext } from "formik";
 import ErrorMessage from "./ErrorMessage";
 import AppPicker from "../AppPicker";
-import colors from "../../config/colors";
 
-const AppFormPicker = ({ items, name, placeholder }: any) => {
+const AppFormPicker = ({
+  items,
+  name,
+  placeholder,
+  PickerItemComponent,
+  width,
+  numberOfColumns,
+}: any) => {
   const {
     setFieldValue,
     setFieldTouched,
@@ -16,6 +22,9 @@ const AppFormPicker = ({ items, name, placeholder }: any) => {
   return (
     <Fragment>
       <AppPicker
+        style={{ width }}
+        numberOfColumns={numberOfColumns}
+        PickerItemComponent={PickerItemComponent}
         items={items}
         placeholder={placeholder}
         onBlur={() => setFieldTouched(name)}

@@ -3,6 +3,7 @@ import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import colors from "../../config/colors";
 import AppText from "../AppText";
 import Swipeable from "react-native-gesture-handler/Swipeable";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 interface IProps {
   title: string;
@@ -21,12 +22,22 @@ const ListItem = ({
 }: IProps) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
+      <MaterialCommunityIcons
+        style={styles.icon}
+        name="chevron-right"
+        size={30}
+        color={colors.medium}
+      />
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
           <Image style={styles.image} source={image} />
           <View>
-            <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subTitle}>{subTitle}</AppText>
+            <AppText numberOfLines={1} style={styles.title}>
+              {title}
+            </AppText>
+            <AppText numberOfLines={1} style={styles.subTitle}>
+              {subTitle}
+            </AppText>
           </View>
         </View>
       </TouchableHighlight>
@@ -37,7 +48,8 @@ const ListItem = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 15,
+    paddingLeft: 15,
+    paddingBottom: 5,
   },
   image: {
     width: 70,
@@ -52,6 +64,10 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: colors.medium,
+  },
+  icon: {
+    left: 370,
+    top: 45,
   },
 });
 
