@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, SafeAreaView, Image } from "react-native";
 import * as Yup from "yup";
 import { AppFormField, SubmitButton, AppForm } from "../components/Forms";
+import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -43,7 +44,8 @@ const LoginScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    backgroundColor: colors.white,
+    flex: 1,
   },
   logo: {
     width: 80,

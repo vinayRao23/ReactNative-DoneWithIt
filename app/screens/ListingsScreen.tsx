@@ -1,10 +1,18 @@
 import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  SafeAreaView,
+} from "react-native";
+import { NavigationProp } from "@react-navigation/native";
 import Card from "../components/Card";
 
-interface IProps {}
+interface IProps {
+  navigation: NavigationProp<any>;
+}
 
-const ListingsScreen = ({}: IProps) => {
+const ListingsScreen = ({ navigation }: IProps) => {
   const listings = [
     {
       id: 1,
@@ -24,13 +32,17 @@ const ListingsScreen = ({}: IProps) => {
       data={listings}
       keyExtractor={(l) => l.id.toString()}
       renderItem={({ item }) => (
-        <View style={styles.container}>
-          <Card
-            title={item.title}
-            subTitle={item.subTitle}
-            image={item.image}
-          />
-        </View>
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate("Details")}
+        >
+          <SafeAreaView style={styles.container}>
+            <Card
+              title={item.title}
+              subTitle={item.subTitle}
+              image={item.image}
+            />
+          </SafeAreaView>
+        </TouchableWithoutFeedback>
       )}
     />
   );
@@ -38,7 +50,9 @@ const ListingsScreen = ({}: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 30,
+    marginTop: 50,
+    width: "90%",
+    alignSelf: "center",
   },
 });
 

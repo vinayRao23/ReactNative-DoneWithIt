@@ -6,10 +6,14 @@ import {
   StyleSheet,
   Text,
 } from "react-native";
+import { NavigationProp } from "@react-navigation/core";
 import AppButton from "../components/AppButton";
 import colors from "../config/colors";
+interface IProps {
+  navigation: NavigationProp<any>;
+}
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }: IProps) => {
   return (
     <ImageBackground
       style={styles.background}
@@ -24,14 +28,14 @@ const WelcomeScreen = () => {
         <AppButton
           color={colors.primary}
           title="Login"
-          onPress={() => console.log("Pressed")}
+          onPress={() => navigation.navigate("Login")}
         />
       </SafeAreaView>
       <SafeAreaView style={{ width: "95%", alignSelf: "center" }}>
         <AppButton
           color={colors.secondary}
           title="Register"
-          onPress={() => console.log("Pressed")}
+          onPress={() => navigation.navigate("Register")}
         />
       </SafeAreaView>
     </ImageBackground>

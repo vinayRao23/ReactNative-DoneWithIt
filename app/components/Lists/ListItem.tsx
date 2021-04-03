@@ -9,6 +9,7 @@ interface IProps {
   title: string;
   subTitle: string;
   image: number;
+  icon?: boolean;
   onPress?: () => void;
   renderRightActions?: () => any;
 }
@@ -18,16 +19,19 @@ const ListItem = ({
   subTitle,
   image,
   onPress,
+  icon,
   renderRightActions,
 }: IProps) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
-      <MaterialCommunityIcons
-        style={styles.icon}
-        name="chevron-right"
-        size={30}
-        color={colors.medium}
-      />
+      {icon && (
+        <MaterialCommunityIcons
+          style={styles.icon}
+          name="chevron-right"
+          size={30}
+          color={colors.medium}
+        />
+      )}
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
           <Image style={styles.image} source={image} />

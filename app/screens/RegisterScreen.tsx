@@ -2,6 +2,7 @@ import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import * as Yup from "yup";
 import { AppForm, AppFormField, SubmitButton } from "../components/Forms";
+import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -51,7 +52,8 @@ const RegisterScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    flex: 1,
+    backgroundColor: colors.white,
   },
 });
 

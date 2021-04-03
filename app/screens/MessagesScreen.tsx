@@ -40,6 +40,7 @@ const MessagesScreen = (props: IProps) => {
             title={item.title}
             subTitle={item.description}
             image={item.image}
+            icon={true}
             onPress={() => console.log("Message Selected:", item)}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
@@ -66,6 +67,7 @@ const MessagesScreen = (props: IProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 20,
   },
 });
 

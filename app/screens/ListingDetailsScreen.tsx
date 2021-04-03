@@ -6,7 +6,7 @@ import colors from "../config/colors";
 
 const ListingDetailsScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/jacket.jpg")} />
       <AppText style={styles.title}>Red Jacket For Sale</AppText>
       <AppText style={styles.subTitle}>$100</AppText>
@@ -22,6 +22,10 @@ const ListingDetailsScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.white,
+    flex: 1,
+  },
   image: {
     width: "100%",
     height: 250,

@@ -1,11 +1,15 @@
 import React, { Fragment } from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
+import { NavigationProp } from "@react-navigation/core";
 import Icon from "../components/Icon";
 import ListItem from "../components/Lists/ListItem";
 import ListItemSeparator from "../components/Lists/ListItemSeparator";
 import colors from "../config/colors";
+interface IProps {
+  navigation: NavigationProp<any>;
+}
 
-const MyAccountScreen = () => {
+const MyAccountScreen = ({ navigation }: IProps) => {
   return (
     <Fragment>
       <SafeAreaView style={styles.container}>
@@ -24,13 +28,15 @@ const MyAccountScreen = () => {
           size={50}
         />
         <ListItemSeparator />
-        <Icon
-          name="email"
-          title="My Messages"
-          backgroundColor={colors.secondary}
-          iconColor={colors.white}
-          size={50}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("Messages")}>
+          <Icon
+            name="email"
+            title="My Messages"
+            backgroundColor={colors.secondary}
+            iconColor={colors.white}
+            size={50}
+          />
+        </TouchableOpacity>
       </SafeAreaView>
       <SafeAreaView style={styles.logoutContainer}>
         <Icon
