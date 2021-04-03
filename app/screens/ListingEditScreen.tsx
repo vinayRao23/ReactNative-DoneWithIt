@@ -8,14 +8,15 @@ import {
   AppFormPicker,
   SubmitButton,
 } from "../components/Forms";
-
-interface IProps {}
+import FormImagePicker from "../components/Forms/FormImagePicker";
+import { useLocation } from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(10000).label("Price"),
-  category: Yup.string().nullable().required().label("Category"),
+  category: Yup.string().nullable().label("Category"),
   description: Yup.string().optional().label("Description"),
+  images: Yup.array().min(1, "Please select at least one image."),
 });
 
 const categories = [
@@ -45,14 +46,23 @@ const categories = [
   { label: "Other", value: 9, backgroundColor: "#8697af", icon: "note" },
 ];
 
-const ListingEditScreen = ({}: IProps) => {
+const ListingEditScreen = () => {
+  const location = useLocation();
+
   return (
     <SafeAreaView style={styles.container}>
       <AppForm
-        initialValues={{ title: "", price: "", category: "", description: "" }}
-        onSubmit={(values) => console.log(values)}
+        initialValues={{
+          title: "",
+          price: "",
+          category: null,
+          description: "",
+          images: [],
+        }}
+        onSubmit={(values) => console.log(location)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name="images" />
         <AppFormField
           placeholder="Title"
           autoCapitalize="none"
