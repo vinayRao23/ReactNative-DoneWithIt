@@ -5,8 +5,9 @@ import ErrorMessage from "./ErrorMessage";
 
 const AppFormField = ({ name, width, ...rest }: any) => {
   const {
-    handleChange,
     setFieldTouched,
+    setFieldValue,
+    values,
     errors,
     touched,
   } = useFormikContext<any>();
@@ -14,7 +15,8 @@ const AppFormField = ({ name, width, ...rest }: any) => {
   return (
     <Fragment>
       <AppTextInput
-        onChangeText={handleChange(name)}
+        onChangeText={(text: string) => setFieldValue(name, text)}
+        value={values[name]}
         onBlur={() => setFieldTouched(name)}
         style={{ width }}
         {...rest}

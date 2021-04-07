@@ -6,13 +6,13 @@ import AppText from "./AppText";
 interface IProps {
   title: string;
   subTitle: string;
-  image: number;
+  imageUrl: string;
 }
 
-const Card = ({ title, subTitle, image }: IProps) => {
+const Card = ({ title, subTitle, imageUrl }: IProps) => {
   return (
     <SafeAreaView style={styles.card}>
-      <Image source={image} style={styles.image} />
+      <Image source={{ uri: imageUrl }} style={styles.image} />
       <SafeAreaView style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subTitle}>{subTitle}</AppText>
