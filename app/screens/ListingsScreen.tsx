@@ -44,13 +44,14 @@ const ListingsScreen = ({ navigation }: IProps) => {
         keyExtractor={(l) => l.id.toString()}
         renderItem={({ item }) => (
           <TouchableWithoutFeedback
-            onPress={() => navigation.navigate("Details")}
+            onPress={() => navigation.navigate("Details", item)}
           >
             <SafeAreaView style={styles.container}>
               <Card
                 title={item.title}
                 subTitle={"$" + item.price}
                 imageUrl={item.images[0].url}
+                thumbnailUrl={item.images[0].thumbnailUrl}
               />
             </SafeAreaView>
           </TouchableWithoutFeedback>

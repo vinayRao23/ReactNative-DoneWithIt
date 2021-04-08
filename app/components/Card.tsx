@@ -1,5 +1,6 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Image } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
+import { Image } from "react-native-expo-image-cache";
 import colors from "../config/colors";
 import AppText from "./AppText";
 
@@ -7,12 +8,18 @@ interface IProps {
   title: string;
   subTitle: string;
   imageUrl: string;
+  thumbnailUrl: string;
 }
 
-const Card = ({ title, subTitle, imageUrl }: IProps) => {
+const Card = ({ title, subTitle, imageUrl, thumbnailUrl }: IProps) => {
   return (
     <SafeAreaView style={styles.card}>
-      <Image source={{ uri: imageUrl }} style={styles.image} />
+      <Image
+        uri={imageUrl}
+        style={styles.image}
+        preview={{ uri: thumbnailUrl }}
+        tint="light"
+      />
       <SafeAreaView style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subTitle}>{subTitle}</AppText>
