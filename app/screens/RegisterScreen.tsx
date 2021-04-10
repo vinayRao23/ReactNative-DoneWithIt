@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import * as Yup from "yup";
-import { AppForm, AppFormField, SubmitButton } from "../components/Forms";
+import { login, register } from "../api/auth";
+import { useAuth } from "../api/useAuth";
+import {
+  AppForm,
+  AppFormField,
+  ErrorMessage,
+  SubmitButton,
+} from "../components/Forms";
 import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
@@ -11,13 +18,28 @@ const validationSchema = Yup.object().shape({
 });
 
 const RegisterScreen = () => {
+  const auth = useAuth();
+  const [registerFailed, setRegisterFailed] = useState(false);
+  const handleSubmit = async ({ email, password, name }: any) => {
+    const result: any = await register(email, name, password);
+    if (!result.ok) {
+      return setRegisterFailed(true);
+    }
+    setRegisterFailed(false);
+    const obj = await login(result.data.email, result.data.password);
+    auth.login(obj.data);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <AppForm
         initialValues={{ name: "", email: "", password: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
+        <ErrorMessage
+          error="Account with the given email already exists."
+          visible={registerFailed}
+        />
         <AppFormField
           placeholder="Name"
           icon="account"

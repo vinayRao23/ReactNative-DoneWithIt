@@ -6,6 +6,7 @@ import AuthStackNavigator from "./app/navigation/AuthStackNavigator";
 import AuthContext from "./app/auth/context";
 import storage from "./app/auth/storage";
 import AppLoading from "expo-app-loading";
+import { navigationRef } from "./app/navigation/rootNavigation";
 
 const App = () => {
   const [user, setUser] = useState();
@@ -31,7 +32,7 @@ const App = () => {
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <OffLineNoticeBar />
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef}>
         {user ? <AppNavigator /> : <AuthStackNavigator />}
       </NavigationContainer>
     </AuthContext.Provider>

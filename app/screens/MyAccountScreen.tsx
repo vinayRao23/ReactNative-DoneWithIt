@@ -1,24 +1,17 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import { StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
 import { NavigationProp } from "@react-navigation/core";
 import Icon from "../components/Icon";
 import ListItem from "../components/Lists/ListItem";
 import ListItemSeparator from "../components/Lists/ListItemSeparator";
 import colors from "../config/colors";
-import AuthContext from "../auth/context";
-import { setStatusBarNetworkActivityIndicatorVisible } from "expo-status-bar";
-import storage from "../auth/storage";
+import { useAuth } from "../api/useAuth";
 interface IProps {
   navigation: NavigationProp<any>;
 }
 
 const MyAccountScreen = ({ navigation }: IProps) => {
-  const { user, setUser } = useContext(AuthContext);
-
-  const handleLogout = () => {
-    setUser(null);
-    storage.removeToken();
-  };
+  const { user, logout } = useAuth();
 
   return (
     <Fragment>
@@ -48,7 +41,7 @@ const MyAccountScreen = ({ navigation }: IProps) => {
           />
         </TouchableOpacity>
       </SafeAreaView>
-      <TouchableOpacity onPress={handleLogout}>
+      <TouchableOpacity onPress={() => logout()}>
         <SafeAreaView style={styles.logoutContainer}>
           <Icon
             name="logout"
