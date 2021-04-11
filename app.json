@@ -13,7 +13,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -26,6 +28,22 @@
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "description": "A marketplace for selling the stuff you don't need anymore."
+    "description": "A marketplace for selling the stuff you don't need anymore.",
+    "notification": {
+      "iosDisplayInForeground": true
+    },
+    "extra": {
+      "bugsnag": {
+        "apiKey": "170c684ab2ce3cf3e7ddb937ca9e072a"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "@bugsnag/expo/hooks/post-publish.js",
+          "config": {}
+        }
+      ]
+    }
   }
 }
